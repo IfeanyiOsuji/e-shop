@@ -1,6 +1,7 @@
 package com.ecommerce.shop.data.model;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,8 +19,10 @@ public class Product {
     private Currency currency;
     private String details;
     @ElementCollection
+    @ToString.Exclude
     private List<String> imageUrl;
 
     @OneToMany // the first side of the relationship is the class you are currently in and the second side is the variable in the class
+    @ToString.Exclude
     private List<FeedBack> feedBacks;
 }
